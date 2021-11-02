@@ -415,6 +415,17 @@ class TestConfigureMinimumCompressionSize(object):
         c = Config('dev', config_from_disk=config_from_disk)
         assert c.minimum_compression_size == 5000
 
+    def test_set_rest_api_handler_name_stage(self):
+        config_from_disk = {
+            'stages': {
+                'dev': {
+                    'rest_api_handler_name': "MyHandler"
+                }
+            }
+        }
+        c = Config('dev', config_from_disk=config_from_disk)
+        assert c.rest_api_handler_name == "MyHandler"
+
 
 class TestConfigureLambdaMemorySize(object):
     def test_not_set(self):
