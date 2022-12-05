@@ -42,6 +42,7 @@ def validate_configuration(config):
     validate_routes(routes)
     validate_route_content_types(routes, config.chalice_app.api.binary_types)
     validate_minimum_compression_size(config)
+    validate_rest_api_handler_name(config)
     _validate_manage_iam_role(config)
     validate_python_version(config)
     validate_unique_function_names(config)
@@ -197,6 +198,14 @@ def validate_minimum_compression_size(config):
         raise ValueError("'minimum_compression_size' must be equal to or "
                          "greater than %s and less than or equal to %s."
                          % (MIN_COMPRESSION_SIZE, MAX_COMPRESSION_SIZE))
+
+
+def validate_rest_api_handler_name(config):
+    # type: (Config) -> None
+    if config.rest_api_handler_name is None:
+        return
+    if not isinstance(config.rest_api_handler_name, str):
+        raise ValueError("'rest_api_handler_name' must be a str.")
 
 
 def _validate_manage_iam_role(config):

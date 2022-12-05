@@ -868,6 +868,7 @@ class TypedAWSClient(object):
                         timeout=None,                # type: OptInt
                         memory_size=None,            # type: OptInt
                         role_arn=None,               # type: OptStr
+                        handler=None,                # type: OptStr
                         subnet_ids=None,             # type: OptStrList
                         security_group_ids=None,     # type: OptStrList
                         layers=None,                 # type: OptStrList
@@ -887,6 +888,7 @@ class TypedAWSClient(object):
             timeout=timeout,
             memory_size=memory_size,
             role_arn=role_arn,
+            handler=handler,
             xray=xray,
             subnet_ids=subnet_ids,
             security_group_ids=security_group_ids,
@@ -943,6 +945,7 @@ class TypedAWSClient(object):
                                 subnet_ids,  # type: OptStrList
                                 security_group_ids,  # type: OptStrList
                                 function_name,  # type: str
+                                handler, # type: str
                                 layers,  # type: OptStrList
                                 xray,  # type: Optional[bool]
                                 ):
@@ -958,6 +961,8 @@ class TypedAWSClient(object):
             kwargs['MemorySize'] = memory_size
         if role_arn is not None:
             kwargs['Role'] = role_arn
+        if handler is not None:
+            kwargs['Handler'] = handler
         if xray:
             kwargs['TracingConfig'] = {'Mode': 'Active'}
         if security_group_ids is not None and subnet_ids is not None:

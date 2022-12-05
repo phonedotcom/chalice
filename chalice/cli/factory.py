@@ -21,6 +21,7 @@ from chalice.package import PackageOptions
 from chalice.constants import DEFAULT_STAGE_NAME
 from chalice.constants import DEFAULT_APIGATEWAY_STAGE_NAME
 from chalice.constants import DEFAULT_ENDPOINT_TYPE
+from chalice.constants import DEFAULT_REST_API_HANDLER_NAME
 from chalice.logs import LogRetriever, LogEventGenerator
 from chalice.logs import FollowLogEventGenerator
 from chalice.logs import BaseLogEventGenerator
@@ -154,6 +155,7 @@ class CLIFactory(object):
         default_params = {'project_dir': self.project_dir,
                           'api_gateway_stage': DEFAULT_APIGATEWAY_STAGE_NAME,
                           'api_gateway_endpoint_type': DEFAULT_ENDPOINT_TYPE,
+                          'rest_api_handler_name': DEFAULT_REST_API_HANDLER_NAME,
                           'autogen_policy': True}
         try:
             config_from_disk = self.load_project_config()

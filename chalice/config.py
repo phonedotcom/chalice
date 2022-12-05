@@ -272,6 +272,12 @@ class Config(object):
                                   varies_per_chalice_stage=True)
 
     @property
+    def rest_api_handler_name(self):
+        # type: () -> str
+        return self._chain_lookup('rest_api_handler_name',
+                                  varies_per_chalice_stage=True)
+
+    @property
     def iam_policy_file(self):
         # type: () -> str
         return self._chain_lookup('iam_policy_file',

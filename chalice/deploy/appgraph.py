@@ -137,7 +137,8 @@ class ApplicationGraphBuilder(object):
         # Need to mess with the function name for back-compat.
         lambda_function = self._create_lambda_model(
             config=config, deployment=deployment, name='api_handler',
-            handler_name='app.app', stage_name=stage_name
+            handler_name=config.rest_api_handler_name, stage_name=stage_name
+            # handler_name = 'app.app', stage_name = stage_name
         )
         # For backwards compatibility with the old deployer, the
         # lambda function for the API handler doesn't have the

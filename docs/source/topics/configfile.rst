@@ -265,6 +265,13 @@ for the given stage. For more information check out the `Service Docs
 <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-gzip-compression-decompression.html>`__
 
 
+``rest_api_handler_name``
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A string value that will be used to set the lambda handler value for the lambda
+powering the API Gateway routes within a Chalice application.
+
+
 ``reserved_concurrency``
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
